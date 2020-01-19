@@ -1,7 +1,7 @@
 Summary:   Tool to convert between any document format supported by LibreOffice
 Name:      unoconv
 Version:   0.6
-Release:   5%{?dist}
+Release:   7%{?dist}
 License:   GPLv2
 Group:     System Environment/Base
 URL:       http://dag.wieers.com/home-made/unoconv/
@@ -11,8 +11,12 @@ Patch1:    0001-python3-added-compatibility.patch
 Patch2:    0001-update-FSF-address.patch
 
 BuildArch: noarch
+Requires:  libreoffice-calc
 Requires:  libreoffice-core
+Requires:  libreoffice-draw
+Requires:  libreoffice-impress
 Requires:  libreoffice-pyuno
+Requires:  libreoffice-writer
 
 %description
 unoconv converts between any document format that LibreOffice understands.
@@ -50,6 +54,12 @@ popd
 %{_bindir}/%{name}
 
 %changelog
+* Fri Jan 31 2014 David Tardon <dtardon@redhat.com> - 0.6-7
+- Resolves: rhbz#1056203 make sure all important filters are available
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 0.6-6
+- Mass rebuild 2013-12-27
+
 * Tue Jul 23 2013 David Tardon <dtardon@redhat.com> - 0.6-5
 - Resolves: rhbz#987046 drop env from shebang
 
